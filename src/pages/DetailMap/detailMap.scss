@@ -1,0 +1,15 @@
+.detailMap{
+    width: 100%;
+    height: calc( 100vh - 89px );
+    .label{
+           font-size: 30px;
+           font-family: 900;
+           transform: translate(0px,-35px);
+    }
+}
+@media screen and (max-width:768px){
+    .detailMap{
+        width: 100%;
+        height: calc( 100vh - 64px );
+    }
+}

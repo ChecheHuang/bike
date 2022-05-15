@@ -1,0 +1,496 @@
+.headerBlock {
+  width: 100%;
+  height: 89px;
+}
+
+header {
+  width: 100%;
+  height: 89px;
+  padding-left: 89px;
+  padding-right: 129px;
+  background: #FED801;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: fixed;
+
+  .logo {
+    width: 225px;
+    height: 43px;
+    cursor: pointer;
+  }
+
+  .showStreet {
+    width: 105px;
+    height: 31px;
+    border-radius: 31px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: 1s;
+
+    .show {
+      position: absolute;
+      color: white;
+      font-size: 13px;
+      margin-left: 12px;
+    }
+
+    .showActive {
+      z-index: -1;
+    }
+
+    .hide {
+      font-size: 13px;
+      position: absolute;
+      right: 12px;
+      z-index: -1;
+    }
+
+    .hideActive {
+      z-index: 1;
+    }
+
+    .showButton {
+      position: absolute;
+      height: 23px;
+      width: 23px;
+      background: white;
+      border-radius: 50%;
+      right: 4px;
+      transition: 0.4s;
+      z-index: 2;
+    }
+
+    .showButtonActive {
+      transform: translateX(-75px);
+      background: #fed801;
+    }
+  }
+
+  .showStreetActive {
+    background: white;
+  }
+
+  .detailText {
+    padding-right: 88px;
+    font-size: 16px;
+    height: 24px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+
+
+
+
+  ///第三部分
+  .selectCity {
+    width: 143px;
+    height: 31px;
+    background: #000;
+    color: white;
+    border-radius: 15.5px;
+    cursor: pointer;
+
+
+    .selectedOption {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 31px;
+      width: 143px;
+      background: black;
+      border-radius: 15.5px;
+
+      .bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        border-radius: 15.5px 15.5px 15.5px 15.5px;
+        z-index: -1;
+      }
+
+      .bgActive {
+        border-radius: 15.5px 15.5px 0 0;
+        transition: .1s;
+      }
+
+      .triangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0.68vw 0.4vw 0 0.4vw;
+        border-color: white transparent transparent transparent;
+      }
+    }
+
+    .options {
+      height: 0px;
+      border-radius: 0 0 15.5px 15.5px;
+      overflow: hidden;
+      // transition: 0.6s;
+      background: black;
+      box-sizing: border-box;
+      margin-top: -15px;
+      padding-top: 15px;
+
+
+      .option {
+        box-sizing: border-box;
+        padding-left: 20px;
+        line-height: 31px;
+        height: 31px;
+        width: 100%;
+      }
+
+      .option:hover {
+        color: black;
+        background: #fed801;
+      }
+    }
+
+    .options::-webkit-scrollbar {
+      width: 0.625vw;
+    }
+
+    .options::-webkit-scrollbar-track {
+      background-color: black;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em;
+    }
+
+    .options::-webkit-scrollbar-thumb {
+      background-color: #fed801;
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em;
+    }
+
+    .optionsActive {
+      height: 210px;
+      overflow-y: scroll;
+    }
+  }
+
+  .selectCityActive {
+    border-radius: 15.5px 15.5px 0 0;
+  }
+}
+
+.selectButtons {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  width: 276px;
+  height: 42px;
+  background: white;
+  border-radius: 42px;
+  cursor: pointer;
+
+  .selectButton {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 42px;
+    background: white;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .iconBike {
+      width: 26px;
+      height: 22.29px;
+      margin-right: 8px;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      // border: 2px solid black;
+      height: 21px;
+      width: 41px;
+      font-family: 'Noto Sans TC';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      text-align-last: justify;
+    }
+  }
+
+  .selectButtonActive {
+    background: black;
+    color: #fed801;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .headerBlock {
+    width: 100%;
+    height: 64px;
+  }
+
+  header {
+    width: 100%;
+    height: 64px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background: #FED801;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    .logo {
+      width: 10px;
+      height: 10px;
+      border-bottom: 3px solid black;
+      border-left: 3px solid black;
+      transform: rotate(45deg);
+      cursor: pointer;
+
+      img {
+        display: none;
+      }
+    }
+
+    .showStreet {
+      width: 105px;
+      height: 31px;
+      border-radius: 31px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: 1s;
+
+      .show {
+        position: absolute;
+        color: white;
+        font-size: 13px;
+        margin-left: 12px;
+      }
+
+      .showActive {
+        z-index: -1;
+      }
+
+      .hide {
+        font-size: 13px;
+        position: absolute;
+        right: 12px;
+        z-index: -1;
+      }
+
+      .hideActive {
+        z-index: 1;
+      }
+
+      .showButton {
+        position: absolute;
+        height: 23px;
+        width: 23px;
+        background: white;
+        border-radius: 50%;
+        right: 4px;
+        transition: 0.4s;
+        z-index: 2;
+      }
+
+      .showButtonActive {
+        transform: translateX(-75px);
+        background: #fed801;
+      }
+    }
+
+    .showStreetActive {
+      background: white;
+    }
+
+    .detailText {
+      padding-right: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .selectCity {
+      border-radius: 31px;
+      .selectedOption {
+        border-radius: 31px;
+        .bg {
+          border-radius: 31px 31px 31px 31px;
+        }
+
+        .bgActive {
+          border-radius: 31px 31px 0 0;
+        }
+        .triangle {
+          border-width: 8px 4.5px 0 4.5px;
+        }
+      }
+    }
+    .selectCityActive {
+      border-radius: 31px 31px 0 0;
+    }
+  }
+
+  .selectButtons {
+    bottom: 0;
+    top: auto;
+    left: auto;
+    transform: translate(0, 0);
+    display: flex;
+    width: 100%;
+    height: 56px;
+    background: white;
+    border-radius: 0px;
+    font-size: 17px;
+    cursor: pointer;
+
+    .selectButton {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0px;
+      background: #fed801;
+      color: white;
+
+    }
+
+    .selectButtonActive {
+      color: black;
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  header {
+    width: 100%;
+    height: 64px;
+    padding-left: 13.5px;
+    padding-right: 13.5px;
+    background: #FED801;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    .logo {
+      width: 10px;
+      height: 10px;
+      border-bottom: 3px solid black;
+      border-left: 3px solid black;
+      transform: rotate(45deg);
+      cursor: pointer;
+
+      img {
+        display: none;
+      }
+    }
+
+    .showStreet {
+      width: 105px;
+      height: 31px;
+      border-radius: 31px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: 1s;
+
+      .show {
+        position: absolute;
+        color: white;
+        font-size: 13px;
+        margin-left: 12px;
+      }
+
+      .showActive {
+        z-index: -1;
+      }
+
+      .hide {
+        font-size: 13px;
+        position: absolute;
+        right: 12px;
+        z-index: -1;
+      }
+
+      .hideActive {
+        z-index: 1;
+      }
+
+      .showButton {
+        position: absolute;
+        height: 23px;
+        width: 23px;
+        background: white;
+        border-radius: 50%;
+        right: 4px;
+        transition: 0.4s;
+        z-index: 2;
+      }
+
+      .showButtonActive {
+        transform: translateX(-75px);
+        background: #fed801;
+      }
+    }
+
+    .showStreetActive {
+      background: white;
+    }
+
+    .detailText {
+      padding-right: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: auto;
+      line-height: 24px;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+
+
+  .selectButtons {
+    .selectButton {
+      .icon {
+        width: 26px;
+        height: 22.29px;
+        margin-right: 8px;
+      }
+    }
+
+    .selectButtonActive {
+      color: black;
+    }
+  }
+}

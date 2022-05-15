@@ -1,0 +1,186 @@
+.mapContainer {
+    width: 100%;
+    height: calc(100vh - 89px);
+    position: relative;
+
+    .autoComplete {
+        position: absolute;
+        top: 33px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        z-index: 4;
+        display: flex;
+        width: 503px;
+        height: 46px;
+
+        .inputArea {
+            position: relative;
+            width: 451px;
+            height: 100%;
+            margin-right: 6px;
+
+            input {
+                width: 451px;
+                height: 100%;
+                box-sizing: border-box;
+                outline: none;
+                border: none;
+                background: #FFFFFF;
+                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                padding: 8px 8px 8px 16px;
+                font-family: 'Noto Sans TC';
+                font-weight: 400;
+                font-size: 17px;
+            }
+            
+            .autoCompleteContainer {
+                position: absolute;
+                width: 100%;
+                max-height: 120px;
+                background: #FED801;
+                border-radius: 0 0 8px 8px;
+                color: black;
+                transition: 1s;
+                overflow-y: scroll;
+
+                div {
+                    padding-left: 20px;
+                    box-sizing: border-box;
+                    height: 30px;
+                    cursor: pointer;
+                }
+
+                div:hover {
+                    background: black;
+                    color: #FED801;
+                }
+            }
+            .autoCompleteContainer-hide{
+                max-height: 0;
+                overflow-y: hidden;
+            }
+
+            .autoCompleteContainer::-webkit-scrollbar {
+                width: 0.625vw;
+            }
+
+            .autoCompleteContainer::-webkit-scrollbar-track {
+                background-color: black;
+                -webkit-border-radius: 2em;
+                -moz-border-radius: 2em;
+                border-radius: 2em;
+            }
+
+            .autoCompleteContainer::-webkit-scrollbar-thumb {
+                background-color: #fed801;
+                -webkit-border-radius: 2em;
+                -moz-border-radius: 2em;
+                border-radius: 2em;
+            }
+        }
+
+        .button {
+            width: 46px;
+            height: 46px;
+            border: none;
+            background: #000000;
+            box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .img {
+                width: 21.32px;
+                height: 22.15px;
+                
+            }
+        }
+    }
+
+    .gpsContainer {
+        position: absolute;
+        cursor: pointer;
+        width: 62px;
+        height: 62px;
+        right: 87px;
+        bottom: 40px;
+        z-index: 1;
+    }
+
+    .marker-position {
+        bottom: 6px;
+        left: 0;
+        position: relative;
+        font-family: 'Roboto';
+        font-style: italic;
+        font-weight: 900;
+        font-size: 15px;
+    }
+
+    .info {
+        width: 200px;
+        height: auto;
+
+        h4,
+        p {
+            font-weight: 900;
+            padding: 0;
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .mapContainer {
+        .gm-ui-hover-effect{
+            display: none !important;
+        }
+        height: calc(100vh - 120px);
+        .autoComplete {
+            top: 36px;
+        }
+    
+        .gpsContainer {
+            right: 16px;
+            top: 820px;
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+    .mapContainer {
+        .autoComplete {
+            top: 22px;
+            width: 305px;
+            height: 44px;
+    
+            .inputArea {
+                width: 255px;
+                input {
+                    width: 255px;
+                    font-size: 16px;
+                }
+                .autoCompleteContainer {
+                    div {
+                        font-size: 13px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+            }
+    
+            .button {
+                width: 44px;
+                height: 44px;
+            }
+        }
+    
+        .gpsContainer {
+            right: 16px;
+            top: auto;
+            bottom: 24px;
+            z-index: 1;
+        }
+    }
+
+}

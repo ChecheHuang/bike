@@ -1,0 +1,114 @@
+.nearbyButton{
+    width: 62px;
+    height: 62px;
+    position: fixed;
+    right: 87px;
+    bottom:40px;
+    cursor: pointer;
+}
+.nearbyAttractionsAndFood{
+    margin: auto;
+    margin-top: 38px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 362px);
+    grid-auto-rows: 143px;
+    gap: 9px;
+    width: 1104px;
+    padding-bottom: 65px;
+    .nearbyAttractionsAndFoodItem{
+        background: #FFFFFF;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        box-sizing: border-box;
+        padding: 12px 14.5px;
+        display: flex;
+        cursor: pointer;
+        .imgContainer{
+            width: 119px;
+            height: 119px;
+            margin-right: 10px;
+            box-sizing: border-box;
+            img{
+                border-radius: 6px;
+            }
+        }
+        .details{
+            box-sizing: border-box;
+            width: 204px;
+            display: flex;
+            flex-direction: column;
+            height: 119px;
+            .distance{
+                text-align: end;
+                color: #FED801;
+                font-size: 13px;
+                height: 15px;
+            }
+            .title{
+                color: black;
+                font-size: 16px;
+                height: 80px;
+                font-weight: 400;
+                overflow : hidden;
+                text-overflow : ellipsis;
+                white-space : nowrap;
+            }
+            .phoneArea{
+                display: flex;
+                align-items: center;
+                height: 24px;
+                .phoneContainer{
+                    width: 24px;
+                    height: 24px;
+                }
+                .phone{
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .nearbyButton{
+        right: 16px;
+        bottom:78px;
+    }
+    .nearbyAttractionsAndFood{
+        grid-template-columns: repeat(2, 362px);
+        gap: 12px;
+        width: 736px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .nearbyButton{
+        right: 16px;
+        bottom:80px;
+    }
+    .nearbyAttractionsAndFood{
+        margin-top: 15px;
+        grid-template-columns: repeat(1, 310px);
+        grid-auto-rows: 93px;
+        width: 310px;
+        .nearbyAttractionsAndFoodItem{
+            padding: 9px 10.5px;
+            .imgContainer{
+                width: 75px;
+                height: 75px;
+            }
+            .details{
+                width: 214px;
+                height: 75px;
+                .title{
+                    height: 36px;
+                }
+            
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.detailMap{
+    width: 100%;
+    height: calc( 100vh - 89px );
+    .iconImage{
+        width: 36px;
+        height: 50px;
+    }
+}
+@media screen and (max-width:768px){
+    .detailMap{
+        width: 100%;
+        height: calc( 100vh - 64px );
+    }
+}

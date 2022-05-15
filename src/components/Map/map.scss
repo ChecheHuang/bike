@@ -1,0 +1,107 @@
+::placeholder {
+  color: #d2d2d2;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  color: #d2d2d2;
+}
+
+::-ms-input-placeholder {
+  color: #d2d2d2;
+}
+.mapContainer {
+  width: 100%;
+  height: 87.3vh;
+  position: relative;
+   .routeMark{
+     width: 10px;
+     height: 10px;
+     background: #000;
+     border-radius: 50%;
+   }
+}
+
+@media screen and (max-width: 800px) {
+  .mapContainer{
+    height: 95vh;
+  }
+}
+.searchArea {
+  position: fixed;
+  width: 503px;
+  height: 46px;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+
+  .searchInput {
+    width: 451px;
+    height: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: transparent;
+    font-size: 17px;
+    text-indent: 12px;
+  }
+  .searchInput:focus{
+    outline: cornsilk;
+  }
+  .searchButton {
+    width: 46px;
+    height: 100%;
+    margin-left: 6px;
+    background: #000000;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .suggestions{
+    position: absolute;
+    width: 451px;
+    background: #fed801;
+    
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    .suggestion{
+      padding-left: 10px;
+       height: 30px;
+       color: black;
+    }
+    .suggestion:hover{
+      background: rgb(34, 33, 33);
+      color: #fed801;
+    }
+  }
+}
+.nearbyIcon {
+  position: absolute;
+  top: 73.06vh;
+  right: 6.8vw;
+  width: 80px;
+  cursor: pointer;
+}
+.numberContain {
+  width: 2.81vw;
+  height: 6.94vh;
+  position: relative;
+
+  .number {
+    position: absolute;
+    top:40%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    font-size: 1.4vw;
+    font-style: italic;
+  }
+  .numberWhite{
+    color: white;
+  }
+}

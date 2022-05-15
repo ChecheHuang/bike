@@ -1,0 +1,98 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  .imgContainer {
+    margin-top: 28px;
+    width: 544px;
+    height: 376.67px;
+    box-sizing: border-box;
+    padding: 22px 18.67px;
+    border-radius: 6px;
+    background: white;
+  }
+  .infos {
+    box-sizing: border-box;
+    width: 544px;
+    padding: 22px 15px;
+    padding-bottom: 0;
+    .info {
+      display: flex;
+      align-items: center;
+      height: 24px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+      button {
+        width: 48px;
+        height: 25px;
+        background: #fed801;
+        border-radius: 50px;
+        border: 0px;
+        cursor: pointer;
+        margin-left: 8px;
+      }
+    }
+}
+.detailText{
+    box-sizing: border-box;
+    width: 544px;
+    padding: 0 22px;
+    margin-bottom: 50px;
+    font-size: 13px;
+}
+}
+@media screen and (max-width: 500px) {
+    .detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .imgContainer {
+          margin-top: 20px;
+          width: 314px;
+          height: 217.33px;
+          box-sizing: border-box;
+          padding: 22px 18.67px;
+          border-radius: 6px;
+          background: white;
+        }
+        .infos {
+          box-sizing: border-box;
+          width: 314px;
+          padding: 22px 10px;
+          padding-bottom: 0;
+          .info {
+            display: flex;
+            align-items: center;
+            height: 24px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            .icon {
+              width: 24px;
+              height: 24px;
+            }
+            button {
+              width: 48px;
+              height: 25px;
+              background: #fed801;
+              border-radius: 50px;
+              border: 0px;
+              cursor: pointer;
+              margin-left: 8px;
+            }
+          }
+      }
+      .detailText{
+          box-sizing: border-box;
+          width: 314px;
+          padding: 0 22px;
+          margin-bottom: 50px;
+          font-size: 13px;
+      }
+      }
+}

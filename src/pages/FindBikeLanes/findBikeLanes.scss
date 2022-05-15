@@ -1,0 +1,97 @@
+.unSelectTitle {
+  font-size: 17px;
+  color: gray;
+  margin-left: 89px;
+  margin-top: 58px;
+}
+.findBikeLaneContainer {
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(3, 362px);
+  grid-auto-rows: 79px;
+  gap: 8px;
+  width: 1102px;
+  padding-bottom: 56px;
+  .findBikeLane {
+    box-sizing: border-box;
+    padding: 12px;
+    background: #ffffff;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    .bikeLaneName {
+      color: black;
+      width: 338px;
+      height: 24px;
+      font-size: 16px;
+      margin-bottom: 11.5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .details {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      font-size: 13px;
+      color: gray;
+      .distance {
+        width: 158px;
+        height: 15px;
+      }
+      .cityAndTown {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        width: 108px;
+        justify-content: end;
+        .location {
+          width: 24px;
+          height: 24px;
+        }
+        .city {
+          width: 39px;
+        }
+        .town {
+          margin-left: 6px;
+          width: 39px;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .unSelectTitle {
+    font-size: 14px;
+    color: gray;
+    margin-left: 25px;
+    margin-top: 64px;
+  }
+  .findBikeLaneContainer {
+    grid-template-columns: repeat(2, 362px);
+    width: 736px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .unSelectTitle {
+    font-size: 14px;
+    color: gray;
+    margin-left: 25px;
+    margin-top: 64px;
+  }
+  .findBikeLaneContainer {
+    margin-top: 24px;
+    grid-template-columns: repeat(1, 310px);
+    width: 310px;
+    .findBikeLane {
+      .bikeLaneName {
+        color: black;
+        width: 286px;
+        
+      }
+    }
+  }
+}
