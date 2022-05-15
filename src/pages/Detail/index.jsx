@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import location from "./images/location.png";
 import tel from "./images/tel.png";
 import time from "./images/time.png";
@@ -6,7 +6,14 @@ import "./detail.scss";
 import { Link } from "react-router-dom";
 
 export default function Detail({ nearbyDetailData }) {
-  const { img, openTime, phone, address, detail } = nearbyDetailData;
+  console.log("nearbyDetailData", nearbyDetailData)
+  // detailData
+  const localStorageData = JSON.parse(localStorage.getItem("detailData"))
+  const [data, setData] = useState(nearbyDetailData)
+  const { img, openTime, phone, address, detail } = data;
+  useEffect(()=>{
+      setData(localStorageData)
+  },[])
   return (
     <>
       <div className="detail">

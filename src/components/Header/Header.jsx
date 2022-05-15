@@ -82,12 +82,17 @@ export default function Header(props) {
 
     const navigate = useNavigate();
     const handleBack = () => {
+        console.log(path)
+        if(path==="nearby"){
+            localStorage.removeItem("nearby")
+        }
         navigate(-1);
     };
 
 
 
     useEffect(()=>{
+        window.scrollTo(0, 0)
         const width=window.innerWidth
         if(width<769){
             setRentImage(bike)

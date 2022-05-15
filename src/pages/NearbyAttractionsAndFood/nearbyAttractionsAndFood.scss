@@ -44,11 +44,12 @@
                 color: #FED801;
                 font-size: 13px;
                 height: 15px;
+                margin-bottom: 6px;
             }
             .title{
                 color: black;
                 font-size: 16px;
-                height: 80px;
+                height: 74px;
                 font-weight: 400;
                 overflow : hidden;
                 text-overflow : ellipsis;
@@ -59,6 +60,10 @@
                 display: flex;
                 align-items: center;
                 height: 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width: 200px;
                 .phoneContainer{
                     width: 24px;
                     height: 24px;

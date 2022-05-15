@@ -9,6 +9,7 @@ export default function NearbyAttractionsAndFoodItem({item,setNearByDetailData})
   }
   const setDetailData=()=>{
     var newData={...item}
+    localStorage.setItem("detailData", JSON.stringify(newData))
     setNearByDetailData(newData)
     
   }

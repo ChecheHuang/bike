@@ -8,10 +8,16 @@ export default function NearbyAttractionsAndFood({viewPoint,setNearByDetailData}
   //附近景點美食資料
   const [attractionsAndFoods,setAttractionsAndFoods]=useState({Attractions:[],Foods:[]})
   const [loading,setLoading]=useState(false)
-  
+  console.log(
+    
+  )
   //景點美食資料
   useEffect(()=>{
-    getInitNearByData(setAttractionsAndFoods)
+    if (localStorage.getItem("nearby") === null){
+      getInitNearByData(setAttractionsAndFoods)
+    }else{
+      getNearByAttractionAndFood(setAttractionsAndFoods)
+    }
   },[])
   const {Attractions,Foods}=attractionsAndFoods
   useEffect(()=>{
@@ -35,7 +41,10 @@ export default function NearbyAttractionsAndFood({viewPoint,setNearByDetailData}
             return <NearbyAttractionsAndFoodItem key = {index} item={item} setNearByDetailData={setNearByDetailData} />
           })
         }
-        <div onClick={()=>{getNearByAttractionAndFood(setAttractionsAndFoods)}} className="nearbyButton">
+        <div onClick={()=>{
+          getNearByAttractionAndFood(setAttractionsAndFoods)
+            localStorage.setItem("nearby", "true")
+          }} className="nearbyButton">
           <img src={GPS} alt="" />
         </div>
         </div>
