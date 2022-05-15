@@ -100,7 +100,7 @@ export function getAuthorizationHeader() {
                     console.log(error);
                   });
                   axios
-                  .get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/Hotel?%24top=30&%24spatialFilter=nearby(${position.coords.latitude}%2C%20${position.coords.longitude}%2C%202000)&%24format=JSON`,
+                    .get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/Restaurant?%24top=30&%24spatialFilter=nearby(${position.coords.latitude}%2C%20${position.coords.longitude}%2C%202000)&%24format=JSON`,
                     {
                       headers: getAuthorizationHeader(),
                     }

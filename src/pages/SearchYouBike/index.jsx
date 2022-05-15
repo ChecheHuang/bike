@@ -107,9 +107,16 @@ export default function SearchYouBike({ rent, showStreet }) {
       setPolyLinesGroups(polyLinesGroups)
     })();
   }, [position, cityName]);
+  const [mapStyle, setMapStyle] = useState({ height: `${window.innerHeight-89}px` })
+  useEffect(()=>{
+    if(window.innerWidth<500){
+      setMapStyle({ height: `${window.innerHeight-120}px` })
+    }
+  },[autoStatus])
+  // console.log(window.innerHeight)
   return (
     <>
-      <div className="mapContainer"  >
+      <div className="mapContainer" style={mapStyle} >
         <div className="autoComplete">
           <div className="inputArea">
             <input

@@ -1,3 +1,4 @@
+$main : #FED801;
 .mapContainer {
     width: 100%;
     height: calc(100vh - 89px);
@@ -38,7 +39,7 @@
                 position: absolute;
                 width: 100%;
                 max-height: 120px;
-                background: #FED801;
+                background: $main;
                 border-radius: 0 0 8px 8px;
                 color: black;
                 transition: 1s;
@@ -53,7 +54,7 @@
 
                 div:hover {
                     background: black;
-                    color: #FED801;
+                    color: $main;
                 }
             }
             .autoCompleteContainer-hide{
@@ -73,7 +74,7 @@
             }
 
             .autoCompleteContainer::-webkit-scrollbar-thumb {
-                background-color: #fed801;
+                background-color: $main;
                 -webkit-border-radius: 2em;
                 -moz-border-radius: 2em;
                 border-radius: 2em;
@@ -133,10 +134,10 @@
 }
 @media screen and (max-width: 800px) {
     .mapContainer {
+        height: calc(100vh - 120px);
         .gm-ui-hover-effect{
             display: none !important;
         }
-        height: calc(100vh - 120px);
         .autoComplete {
             top: 36px;
         }
