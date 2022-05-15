@@ -113,7 +113,6 @@ export default function SearchYouBike({ rent, showStreet }) {
       setMapStyle({ height: `${window.innerHeight-120}px` })
     }
   },[])
-  // console.log(window.innerHeight)
   return (
     <>
       <div className="mapContainer" style={mapStyle} >

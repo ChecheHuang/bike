@@ -1,4 +1,10 @@
 $main : #FED801;
+@mixin dFlexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .mapContainer {
     width: 100%;
     height: calc(100vh - 89px);
@@ -89,9 +95,7 @@ $main : #FED801;
             box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include dFlexCenter;
 
             .img {
                 width: 21.32px;
