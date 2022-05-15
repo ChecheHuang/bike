@@ -112,7 +112,7 @@ export default function SearchYouBike({ rent, showStreet }) {
     if(window.innerWidth<500){
       setMapStyle({ height: `${window.innerHeight-120}px` })
     }
-  },[autoStatus])
+  },[])
   // console.log(window.innerHeight)
   return (
     <>
