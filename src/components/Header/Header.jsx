@@ -67,6 +67,11 @@ export default function Header(props) {
     //取得位置路徑
     const location = useLocation();
     const path = location.pathname.replace("/", "");
+    useEffect(()=>{
+        if(path!=="nearby"){
+            window.scrollTo(0, 0)
+        }
+    },[path])
   
     //依據rwd載入不同圖片
     const [rentImage,setRentImage]=useState(activebike)
@@ -82,7 +87,6 @@ export default function Header(props) {
 
     const navigate = useNavigate();
     const handleBack = () => {
-        console.log(path)
         if(path==="nearby"){
             localStorage.removeItem("nearby")
         }
@@ -92,7 +96,6 @@ export default function Header(props) {
 
 
     useEffect(()=>{
-        window.scrollTo(0, 0)
         const width=window.innerWidth
         if(width<769){
             setRentImage(bike)
