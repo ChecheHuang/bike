@@ -68,16 +68,8 @@ export default function Header(props) {
     const location = useLocation();
     const path = location.pathname.replace("/", "");
     useEffect(()=>{
-<<<<<<< HEAD
         window.scrollTo(0, 0)
     },[path])
-=======
-        if(path!=="nearby"){
-            window.scrollTo(0, 0)
-        }
-    },[path])
-  
->>>>>>> 5eb159fdc7d7f7a0e075406ffe7786b02e569278
     //依據rwd載入不同圖片
     const [rentImage,setRentImage]=useState(activebike)
     const [rentImage2,setRentImage2]=useState(bike)
