@@ -6,7 +6,6 @@ import "./detail.scss";
 import { Link } from "react-router-dom";
 
 export default function Detail({ nearbyDetailData }) {
-  console.log("nearbyDetailData", nearbyDetailData)
   // detailData
   const localStorageData = JSON.parse(localStorage.getItem("detailData"))
   const [data, setData] = useState(nearbyDetailData)

@@ -8,9 +8,6 @@ export default function NearbyAttractionsAndFood({viewPoint,setNearByDetailData}
   //附近景點美食資料
   const [attractionsAndFoods,setAttractionsAndFoods]=useState({Attractions:[],Foods:[]})
   const [loading,setLoading]=useState(false)
-  console.log(
-    
-  )
   //景點美食資料
   useEffect(()=>{
     if (localStorage.getItem("nearby") === null){
