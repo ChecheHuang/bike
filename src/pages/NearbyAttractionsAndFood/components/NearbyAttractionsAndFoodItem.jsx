@@ -1,7 +1,7 @@
 import React from "react";
 import tel from "../images/tel.png";
 import { Link } from "react-router-dom";
-export default function NearbyAttractionsAndFoodItem({ item, setNearByDetailData, setScrollY}) {
+export default function NearbyAttractionsAndFoodItem({ item, setNearByDetailData,attractionsAndFoods}) {
   const {distance,img,phone,name}=item
   var imgUrl=img
   if(img===undefined){
@@ -10,9 +10,10 @@ export default function NearbyAttractionsAndFoodItem({ item, setNearByDetailData
   const setDetailData=()=>{
     var newData={...item}
     localStorage.setItem("detailData", JSON.stringify(newData))
+    localStorage.setItem("nearbyData", JSON.stringify(attractionsAndFoods))
+    localStorage.setItem("scroll", window.scrollY)
+
     setNearByDetailData(newData)
-    setScrollY(800)
-    console.log(window.scrollY)
   }
   
  

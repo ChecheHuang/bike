@@ -73,7 +73,7 @@ export function getAuthorizationHeader() {
       }
 
       export function getNearByAttractionAndFood(setData){
-          var data=[]
+          var data={}
           var Attractions=[]
           var Foods=[]
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -127,7 +127,7 @@ export function getAuthorizationHeader() {
         return Math.floor(Math.random()*(max-min+1))+min;
       };
       export function getInitNearByData(setData){
-        var data=[]
+        var data={}
         var Attractions=[]
         var Foods=[]
       navigator.geolocation.getCurrentPosition(function (position) {
