@@ -19,7 +19,6 @@ import centerImage from "../../youbike_GPS.json";
 import "./searchYouBike.scss";
 export default function SearchYouBike({ rent, showStreet }) {
   const [position, setPosition] = useState({ lat: 25.047675, lng: 121.517055 });
-  const [isNearBy, setIsNearBy] = useState(false);
   const [data, setData] = useState([]);
   const [autoComplete, setAutoComplete] = useState([]);
   const [originAutoComplete, setOriginAutoComplete] = useState([]);
@@ -30,8 +29,8 @@ export default function SearchYouBike({ rent, showStreet }) {
 
   const [map, setMap] = useState(null);
   const [info, setInfo] = useState({});
-  useEffect(() => {
-    if (isNearBy) {
+  function nearby(){
+    if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(async function (position) {
         setPosition({
           lat: position.coords.latitude,
@@ -48,9 +47,14 @@ export default function SearchYouBike({ rent, showStreet }) {
           .substring(0, 3);
         const cityName = citys.find(item => { return item.city===chineseCityName}).english
         setCityName(cityName)
-      });
+      },function(){alert("GPS取得失敗")},{enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0});
+    }else{
+      alert("目前GPS無法定位");
     }
-  }, [isNearBy]);
+  }
+
 
   useEffect(() => {
     (async function () {
@@ -174,9 +178,7 @@ export default function SearchYouBike({ rent, showStreet }) {
           </div>
         </div>
         <div
-          onClick={() => {
-            setIsNearBy(true);
-          }}
+          onClick={nearby}
           className="gpsContainer"
         >
           <img src={gps} alt="" />

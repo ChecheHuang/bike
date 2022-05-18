@@ -76,50 +76,56 @@ export function getAuthorizationHeader() {
           var data={}
           var Attractions=[]
           var Foods=[]
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position.coords.latitude)
-            console.log(position.coords.longitude)
-            axios
-                  .get(
-                    `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?%24spatialFilter=nearby(${position.coords.latitude}%2C%20${position.coords.longitude}%2C%202000)&%24format=JSON`,
-                    {
-                      headers: getAuthorizationHeader(),
-                    }
-                  )
-                  .then(function (response) {
-                    for(let item of response.data ){
-                          const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
-                          if(distance<=20){
-                            var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
-                              Attractions=[...Attractions,{distance:distance,name:item.ScenicSpotName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
-                          }
-                    }
-                    data.Attractions=Attractions
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
-                  axios
-                    .get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/Restaurant?%24top=30&%24spatialFilter=nearby(${position.coords.latitude}%2C%20${position.coords.longitude}%2C%202000)&%24format=JSON`,
-                    {
-                      headers: getAuthorizationHeader(),
-                    }
-                  )
-                  .then(function (response) {
-                    for(let item of response.data ){
-                          const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
-                          if(distance<=20){
+        if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(function (position) {
+              console.log(position.coords.latitude)
+              console.log(position.coords.longitude)
+              axios
+                    .get(
+                      `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?%24spatialFilter=nearby(${position.coords.latitude}%2C%20${position.coords.longitude}%2C%202000)&%24format=JSON`,
+                      {
+                        headers: getAuthorizationHeader(),
+                      }
+                    )
+                    .then(function (response) {
+                      for(let item of response.data ){
+                            const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
+                            if(distance<=20){
                               var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
-                              Foods=[...Foods,{distance:distance,name:item.RestaurantName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
-                          }
-                    }
-                    data.Foods=Foods
-                    setData(data)
-                  })
-                  .catch(function (error) {
-                    console.log(error);
-                  });
-          });
+                                Attractions=[...Attractions,{distance:distance,name:item.ScenicSpotName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
+                            }
+                      }
+                      data.Attractions=Attractions
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+                    axios
+                      .get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/Restaurant?%24top=30&%24spatialFilter=nearby(${position.coords.latitude}%2C%20${position.coords.longitude}%2C%202000)&%24format=JSON`,
+                      {
+                        headers: getAuthorizationHeader(),
+                      }
+                    )
+                    .then(function (response) {
+                      for(let item of response.data ){
+                            const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
+                            if(distance<=20){
+                                var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
+                                Foods=[...Foods,{distance:distance,name:item.RestaurantName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
+                            }
+                      }
+                      data.Foods=Foods
+                      setData(data)
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+            },function(){alert("GPS取得失敗")},{enableHighAccuracy: true,
+              timeout: 5000,
+              maximumAge: 0});
+        }else{
+          alert("目前GPS無法定位");
+        }
 
       }
       //產生min到max之間的亂數
@@ -130,43 +136,49 @@ export function getAuthorizationHeader() {
         var data={}
         var Attractions=[]
         var Foods=[]
-      navigator.geolocation.getCurrentPosition(function (position) {
-        axios
-        .get(
-          `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?%24top=30&%24skip=${getRandom(1,3000)}&%24format=JSON`,
-          {
-            headers: getAuthorizationHeader(),
-          }
-        )
-        .then(function (response) {
-          for(let item of response.data ){
-                const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
-                var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
-                    Attractions=[...Attractions,{distance:distance,name:item.ScenicSpotName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
-          }
-          data.Attractions=Attractions
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-        axios
-        .get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/Restaurant?%24top=30&%24skip=${getRandom(1,3000)}&%24format=JSON`,
-          {
-            headers: getAuthorizationHeader(),
-          }
-        )
-        .then(function (response) {
-          for(let item of response.data ){
-                const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
-                var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
-                Foods=[...Foods,{distance:distance,name:item.RestaurantName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
-          }
-          data.Foods=Foods
-          setData(data)
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-        });
+        if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(function (position) {
+            axios
+            .get(
+              `https://ptx.transportdata.tw/MOTC/v2/Tourism/ScenicSpot?%24top=30&%24skip=${getRandom(1,3000)}&%24format=JSON`,
+              {
+                headers: getAuthorizationHeader(),
+              }
+            )
+            .then(function (response) {
+              for(let item of response.data ){
+                    const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
+                    var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
+                        Attractions=[...Attractions,{distance:distance,name:item.ScenicSpotName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
+              }
+              data.Attractions=Attractions
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+            axios
+            .get(`https://ptx.transportdata.tw/MOTC/v2/Tourism/Restaurant?%24top=30&%24skip=${getRandom(1,3000)}&%24format=JSON`,
+              {
+                headers: getAuthorizationHeader(),
+              }
+            )
+            .then(function (response) {
+              for(let item of response.data ){
+                    const distance=getDistanceFromLatLonInKm(position.coords.latitude,position.coords.longitude,item.Position.PositionLat,item.Position.PositionLon)
+                    var newPosition={lat:item?.Position?.PositionLat,lng:item?.Position?.PositionLon}
+                    Foods=[...Foods,{distance:distance,name:item.RestaurantName||"尚未提供",phone:item.Phone||"尚未提供",position:newPosition||{lat:0,lng:0},img:item.Picture.PictureUrl1||placeholderImg,address:item.Address||"尚未提供",openTime:item.OpenTime||"尚未提供",detail:item.DescriptionDetail||"尚未提供"}]
+              }
+              data.Foods=Foods
+              setData(data)
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+            },function(){alert("GPS取得失敗")},{enableHighAccuracy: true,
+              timeout: 5000,
+              maximumAge: 0});
+        }else{
+          alert("目前GPS無法定位");
+        }
 
     }

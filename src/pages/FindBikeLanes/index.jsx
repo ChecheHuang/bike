@@ -19,6 +19,10 @@ export default function FindBikeLanes({cityName,setBikeLane}) {
       );
       setTimeout(() => {
         setLoading(false);
+        if(localStorage.getItem("scroll")!==null){
+          window.scrollTo(0,parseInt(localStorage.getItem("scroll")))
+          localStorage.removeItem("scroll")
+        }
       }, [500]);
     }
   }, [cityName]);

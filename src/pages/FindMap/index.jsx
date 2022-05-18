@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -10,7 +10,8 @@ import blackMarkerEnd from "./images/blackMarkerEnd.png";
 import "./findMap.scss";
 
 export default function FindMap({ bikeLane }) {
-  const string = bikeLane.Geometry.replace("MULTILINESTRING ", "");
+  const localStorageData = JSON.parse(localStorage.getItem("lanes"))
+  const string = localStorageData.Geometry.replace("MULTILINESTRING ", "");
   const polyline = string
     .replaceAll("(", "")
     .replaceAll(")", "")

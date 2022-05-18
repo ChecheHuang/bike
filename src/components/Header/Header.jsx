@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "./images/Logo.png";
 import activebike from "./images/activebike.png";
 import parking from "./images/parking.png";
@@ -25,18 +25,12 @@ export default function Header(props) {
     //控制下拉選單
     const [selectStatus, setSelectStatus] = useState(false);
     //下拉選單縮回來0.6秒再把select補齊
-    const [bgStatus,setBgStatus]=useState(false)
     //select裡面顯示的字
     const [selectedCity, setSelectCity] = useState("選擇縣市");
     //控制是否顯示下拉選單
     const toggleSelect=()=> {
         setSelectStatus(!selectStatus);
-        // setBgStatus(true)
-        // if(selectStatus){
-        //     setTimeout(()=>{
-        //         setBgStatus(false)
-        //     },500)
-        // }
+      
     }
     //控制下拉選單的字
     const selectCity=(city, english)=> {
@@ -142,7 +136,7 @@ export default function Header(props) {
                                     }
                                 >
                                     <div className="selectedOption">
-                                        <div className={"bg " + (bgStatus&& "bgActive")}></div>
+                                        <div className={"bg "}></div>
                                         <div>{selectedCity}</div>
                                         <div className="triangle"></div>
                                     </div>

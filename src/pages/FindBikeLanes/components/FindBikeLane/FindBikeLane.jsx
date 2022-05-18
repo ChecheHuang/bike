@@ -11,7 +11,9 @@ export default function FindBikeLane({ item,setBikeLane }) {
     distance += (CyclingLength / 1000).toFixed(2).toString() + "公里"
   }
   const bikeLane=()=>{
-    
+    localStorage.setItem("scroll", window.scrollY)
+    localStorage.setItem("lanes", JSON.stringify(item))
+    console.log(item)
     setBikeLane(item)
   }
   return (
