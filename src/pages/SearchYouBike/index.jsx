@@ -68,12 +68,13 @@ export default function SearchYouBike({ rent, showStreet }) {
         { headers: getAuthorizationHeader() }
       );
       const response3 = await axios.get(
-        `https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/${cityName}?%24format=JSON`,
+        `https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/City/${cityName}?%24format=JSON`,
         { headers: getAuthorizationHeader() }
       );
    
      
       var data = response2.data;
+      console.log(`https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/City/${cityName}?%24format=JSON`)
       var map = {};
       for (let i in data) {
         map[data[i].StationID] = i;
@@ -204,6 +205,7 @@ export default function SearchYouBike({ rent, showStreet }) {
           >
             {showStreet&& polyLinesGroups.map((polyline,index)=>{
               return <Polyline
+                key={index}
                 path={polyline}
                 options={{
                   strokeColor: "black",

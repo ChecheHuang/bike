@@ -7,6 +7,7 @@ import centerImage from "../../../src/youbike.json";
 
 
 export default function Home() {
+
   const [lottieHeight,setLottieHeight]=useState(68)
   const defaultOptions = {
     loop: true,

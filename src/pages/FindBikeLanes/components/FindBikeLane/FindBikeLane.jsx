@@ -13,7 +13,6 @@ export default function FindBikeLane({ item,setBikeLane }) {
   const bikeLane=()=>{
     localStorage.setItem("scroll", window.scrollY)
     localStorage.setItem("lanes", JSON.stringify(item))
-    console.log(item)
     setBikeLane(item)
   }
   return (

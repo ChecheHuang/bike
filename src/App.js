@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {  HashRouter, Route, Routes } from "react-router-dom";
 import Header from "../src/components/Header/Header";
 import Home from "../src/pages/Home";
 import FindBikeLanes from "../src/pages/FindBikeLanes";
@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <>
-      <Router>
+      <HashRouter>
         <Header
           rent={rent}
           setRent={setRent}
@@ -60,7 +60,7 @@ export default function App() {
           <Route exact path="/detailMap" element={<DetailMap nearbyDetailData={nearbyDetailData}/>} />
           <Route exact path="/" element={<Home />} />
         </Routes>
-      </Router>
+      </HashRouter>
     </>
   );
 }
