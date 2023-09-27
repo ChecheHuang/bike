@@ -3,6 +3,7 @@ import { getData } from "../../api";
 import Loading from "../../components/Loading";
 import FindBikeLane from "./components/FindBikeLane/FindBikeLane";
 import "./findBikeLanes.scss";
+import axios from "axios";
 export default function FindBikeLanes({cityName,setBikeLane}) {
   //api拿到的資料自行車道查詢
   const [apiData, setApiData] = useState([]);
@@ -13,10 +14,22 @@ export default function FindBikeLanes({cityName,setBikeLane}) {
     if (cityName !== "none") {
       window.scrollTo(0, 0);
       setLoading(true);
-      getData(
-        `https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/${cityName}?%24format=JSON`,
-        setApiData
-      );
+     
+       axios
+         .get(
+           `https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/City/${cityName}?%24format=JSON`
+         )
+         .then((res) => {
+           setApiData(res.data)
+         })
+         .catch((err) => {
+           console.log(err)
+         })
+      
+      // getData(
+      //   `https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/${cityName}?%24format=JSON`,
+      //   setApiData
+      // );
       setTimeout(() => {
         setLoading(false);
         if(localStorage.getItem("scroll")!==null){
